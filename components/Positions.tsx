@@ -1,6 +1,6 @@
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 
-export default function Postions(){
+export const Postions = () =>{
     return(
         <>
             <div className="t-bg-gray-50 t-container t-mt-8 t-rounded-lg t-pb-8  ">

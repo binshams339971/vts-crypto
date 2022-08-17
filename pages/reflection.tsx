@@ -2,10 +2,9 @@ import { NextPage } from "next";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import RightSection from "@components/common/RightSection/RightSection";
 import Image from 'next/image'
-import ref from "../assets/images/reflection.PNG";
 import {Watchlist} from "@components/common/Watchlist";
 import { useEffect } from "react";
-import Postions from "@components/positions";
+import {Postions} from "@components/Positions";
 import { Transactions } from "@components/Transactions";
 import { SideMenu } from "@components/common/SideMenu";
 import {Footer} from "@components/common/Footer";
@@ -37,7 +36,7 @@ const Reflection: NextPage<Props> = (props) => {
           <div className="t-col-span-7">
             <div className="t-flex">
               <div className="t-mt-8 t-mr-6">
-                <Image src={ref} width={55} height={40} />
+              <Image src="/assets/images/vtsLogo.png" width={80} height={70} />
               </div>
               <h1 className="t-mt-12 t-mr-8 t-text-xl t-text-[#0B0C20] t-font-bold">Reflection</h1>
               <h1 className="t-mt-12 t-text-xl t-text-[#0B0C20] t-font-semibold">Dashboard</h1>

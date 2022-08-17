@@ -6,10 +6,19 @@ import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
 import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
 import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import InsertInvitationOutlinedIcon from '@mui/icons-material/InsertInvitationOutlined';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export const SideMenu = () => { 
     var nav = useRef<HTMLUListElement | null>(null);
     const el = useRef<HTMLUListElement | null>(null);
+
+    const router = useRouter();
+    const [path, setpath] = useState("");
+
+    useEffect(()=>{
+        setpath(router.asPath);
+    },[])
 
     function clear(){
         if(el.current){
@@ -38,20 +47,25 @@ export const SideMenu = () => {
                     <path fillRule="evenodd" clipRule="evenodd" d="M0 0H18V2H0V0ZM0 6H18V8H0V6ZM11 12H0V14H11V12Z" fill="#BFC5D2" />
                 </svg>
             </div>
-            <nav ref={nav} className="t-w-52 t-bg-white t-fixed t-left-0 t-top-0 t-min-h-[36rem] t-rounded-r-lg t-mt-40 expanded">
+            <nav ref={nav} className="t-w-52 t-bg-white t-fixed t-left-0 t-top-0 t-min-h-[36rem] t-rounded-r-2xl t-mt-40">
                 <ul className="t-flex t-flex-col t-items-center t-mt-8" ref={el}>
-                    <li className="t-h-14 t-w-full" onClick={(e)=>addActive(1)}>
-                        <a className="t-bg-link-hover t-w-full t-h-full t-flex t-items-center t-p-5 t-text-gray-400 t-relative active">
-                            <GridViewOutlinedIcon fontSize="medium" className='t-mt-[.1rem] t-mr-2 icn'></GridViewOutlinedIcon>
-                            <span className="link-label">Dashboard</span>
-                        </a>
-                    </li>
-                    <li className="t-h-14 t-w-full" onClick={()=>addActive(2)}>
-                        <a href="#" className="hover:t-bg-link-hover t-transition-colors t-duration-500 t-w-full t-h-full t-flex t-items-center t-p-5 t-text-gray-400  t-relative">
-                            <PaidOutlinedIcon fontSize="medium" className='t-mt-[.1rem] t-mr-2 icn'></PaidOutlinedIcon>
-                            <span className="link-label">Trade</span>
-                        </a>
-                    </li>
+                    <Link href="/dashboard">
+                        <li className="hover:t-cursor-pointer t-h-14 t-w-full">
+                            <a className={`t-bg-link-hover t-w-full t-h-full t-flex t-items-center t-p-5 t-text-gray-400 t-relative ${path=="/dashboard" && "active"}`}>
+                                <GridViewOutlinedIcon fontSize="medium" className='t-mt-[.1rem] t-mr-2 icn'></GridViewOutlinedIcon>
+                                <span className="link-label">Dashboard</span>
+                            </a>
+                        </li>
+                    </Link>
+                    <Link href="/trade">
+                        <li className="hover:t-cursor-pointer t-h-14 t-w-full" onClick={()=>addActive(2)}>
+                            <a className={`t-bg-link-hover t-w-full t-h-full t-flex t-items-center t-p-5 t-text-gray-400 t-relative ${path=="/trade" && "active"}`}>
+                                <PaidOutlinedIcon fontSize="medium" className='t-mt-[.1rem] t-mr-2 icn'></PaidOutlinedIcon>
+                                <span className="link-label">Trade</span>
+                            </a>    
+                        </li>
+                    </Link>
+                    
                     <li className="t-h-14 t-w-full" onClick={(e)=>addActive(3)}>
                         <a href="#" className="hover:t-bg-link-hover t-transition-colors t-duration-500 t-w-full t-h-full t-flex t-items-center t-p-5 t-text-gray-400  t-relative">
                             <AccessTimeOutlinedIcon fontSize="medium" className='t-mt-[.1rem] t-mr-2 icn'></AccessTimeOutlinedIcon>

@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { LandingComponent } from "@components/dashboard/LandingComponent"
 import RightSection from "@components/common/RightSection/RightSection";
 import Image from 'next/image'
-import refl from "../assets/images/reflection.PNG";
 import {Watchlist} from "@components/common/Watchlist";
 import { useEffect } from "react";
 import { WatchlistServiceInstance } from "@app/services/WatchlistSerivice";
@@ -35,7 +34,7 @@ const Dashboard: NextPage<Props> = (props) => {
             <h1 className="t-my-8 t-text-xl t-text-[#0B0C20] t-font-semibold">Dashboard</h1>
             <div className="t-grid t-grid-cols-12">
               <div className="t-col-span-1">
-                <Image src={refl} width={55} height={40} />
+                <Image src="/assets/images/vtsLogo.png" width={80} height={70} />
               </div>
               <div className="t-col-span-11">
                 <h1 className="t-ml-8 t-text-5xl t-text-[#0B0C20] t-font-bold">Reflection</h1>
